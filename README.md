@@ -1,9 +1,9 @@
 Algorithms_Data_Structure
 =========================
 
-The basic algorithms and data structures with C. Personal learning summary, welcome to add ！！
-
-### Completed
-- [x] SqList
+This is a repo of learning data structures and algorithms. 
 
 
+### Participants
+- [x] [chenggoi](https://github.com/lratic)
+- [x] [lratic](https://github.com/chenggoi)
