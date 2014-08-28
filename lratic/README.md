@@ -2,7 +2,8 @@ lratic
 ---
 
 ### completed 
+- [ ] sqList
+
 
 ### todo
 - [ ] linkList
-- [ ] sqList
