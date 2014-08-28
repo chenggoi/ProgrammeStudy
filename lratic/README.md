@@ -2,7 +2,7 @@ lratic
 ---
 
 ### completed 
-- [ ] sqList
+- [x] sqList
 
 
 ### todo
