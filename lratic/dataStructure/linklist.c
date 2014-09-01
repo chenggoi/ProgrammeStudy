@@ -44,6 +44,32 @@ void Display (LinkList L) {
 	printf ("\n");
 }
 
+void Insert (LinkList L, int n, ElemType e) {
+	LinkList p, q, in;
+	int i = 0;
+
+	in = (LinkList)malloc(sizeof(LNode));
+	in->data = e;
+	in->next = NULL;
+	p = L;
+	q = L->next;
+	if (n == 1) {
+		p->next = in;
+		in->next = q;
+		return;
+	}
+	for (i = 0; i != n && p != NULL; i++) {
+		p = q;
+		q = q->next;
+	}
+	if (i == n) {
+		p->next = in;
+		in->next = q;
+	} else if (i < n) {
+		q->next = in;
+	}
+}
+
 int main () {
 	int len;
 	LinkList link;
@@ -51,5 +77,7 @@ int main () {
 	printf ("Please input the size for this LinkList: \n");
 	scanf ("%d", &len);
 	link = InitList(len);
+	Display(link);
+	Insert(link, 2, 1000);
 	Display(link);
 }
