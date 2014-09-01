@@ -93,6 +93,15 @@ void Delete (LinkList L, int n) {
 	}
 }
 
+void Free (LinkList L) {
+	LinkList tmp;
+	while (L->next != NULL) {
+		tmp = L;
+		L = L->next;
+		free (tmp);
+	}
+}
+
 int main () {
 	int len, inn, nde;
 	ElemType ine;
