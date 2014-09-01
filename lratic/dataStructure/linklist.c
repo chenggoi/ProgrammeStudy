@@ -58,7 +58,7 @@ void Insert (LinkList L, int n, ElemType e) {
 		in->next = q;
 		return;
 	}
-	for (i = 0; i != n && p != NULL; i++) {
+	for (i = 1; i != n && p != NULL; i++) {
 		p = q;
 		q = q->next;
 	}
@@ -71,7 +71,8 @@ void Insert (LinkList L, int n, ElemType e) {
 }
 
 int main () {
-	int len;
+	int len, inn;
+	ElemType ine;
 	LinkList link;
 
 	printf ("Please input the size for this LinkList: \n");
@@ -79,6 +80,7 @@ int main () {
 	link = InitList(len);
 	Display(link);
 	printf ("Please input the position and the element you want to insert: \n");
-	Insert(link, 2, 1000);
+	scanf ("%d %d", &inn, &ine);
+	Insert(link, inn, ine);
 	Display(link);
 }
