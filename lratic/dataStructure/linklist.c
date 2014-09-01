@@ -78,6 +78,7 @@ int main () {
 	scanf ("%d", &len);
 	link = InitList(len);
 	Display(link);
+	printf ("Please input the position and the element you want to insert: \n");
 	Insert(link, 2, 1000);
 	Display(link);
 }
