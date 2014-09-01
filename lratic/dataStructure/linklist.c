@@ -70,8 +70,31 @@ void Insert (LinkList L, int n, ElemType e) {
 	}
 }
 
+void Delete (LinkList L, int n) {
+	LinkList p, q, tmp;
+	int i;
+	p = L;
+	q = L->next;
+	if (n == 1) {
+		tmp = p->next;
+		p->next = q->next;
+		free (tmp);
+		return;
+	} else {
+		for (i = 1; i != n && q->next != NULL; i++) {
+			p = q;
+			q = q->next;
+		}
+		if (i == n) {
+			tmp = p->next;
+			p->next = q-> next;
+			free (tmp);
+		}
+	}
+}
+
 int main () {
-	int len, inn;
+	int len, inn, nde;
 	ElemType ine;
 	LinkList link;
 
@@ -81,6 +104,10 @@ int main () {
 	Display(link);
 	printf ("Please input the position and the element you want to insert: \n");
 	scanf ("%d %d", &inn, &ine);
-	Insert(link, inn, ine);
-	Display(link);
+	Insert (link, inn, ine);
+	Display (link);
+	printf ("Input which element you want to delete: \n");
+	scanf ("%d", &nde);
+	Delete (link, nde);
+	Display (link);
 }
