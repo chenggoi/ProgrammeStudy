@@ -119,4 +119,5 @@ int main () {
 	scanf ("%d", &nde);
 	Delete (link, nde);
 	Display (link);
+	Free (link);
 }

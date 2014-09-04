@@ -98,6 +98,5 @@ int main() {
 	scanf("%d", &lo);
 	ListDelete(L, lo);
 	Display(L);
-	free(L);
 	return 0;
 }

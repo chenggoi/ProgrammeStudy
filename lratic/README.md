@@ -1,9 +1,15 @@
 lratic
 ---
 
+## Data Structure
 ### completed 
 - [x] sqlist
-
+- [x] linkList
 
 ### todo
-- [ ] linklist
+
+
+## ACM
+
+
+## Algorithms
