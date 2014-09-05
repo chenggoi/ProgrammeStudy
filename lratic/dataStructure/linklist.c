@@ -15,6 +15,7 @@ typedef struct LNode {
 	struct LNode *next;
 }LNode, *LinkList;
 
+/*初始化鏈表，傳入參數是鏈表中元素個數，返回鏈表*/
 LinkList InitList(int len) {
 	int i;
 	LinkList head, p, q;
@@ -32,6 +33,7 @@ LinkList InitList(int len) {
 	return head;
 }
 
+/*展示鏈表中所有節點的值*/
 void Display (LinkList L) {
 	printf ("\nThe list of elements are: \n++++++++\n");
 	LinkList l;
@@ -44,6 +46,7 @@ void Display (LinkList L) {
 	printf ("\n");
 }
 
+/*插入操作，傳入參數是鏈表，在哪個元素之前插值，插入的值*/
 void Insert (LinkList L, int n, ElemType e) {
 	LinkList p, q, in;
 	int i = 0;
@@ -70,6 +73,7 @@ void Insert (LinkList L, int n, ElemType e) {
 	}
 }
 
+/*刪除操作，傳入參數是鏈表，待刪除節點*/
 void Delete (LinkList L, int n) {
 	LinkList p, q, tmp;
 	int i;
@@ -93,6 +97,7 @@ void Delete (LinkList L, int n) {
 	}
 }
 
+/*釋放內存*/
 void Free (LinkList L) {
 	LinkList tmp;
 	while (L->next != NULL) {

@@ -20,6 +20,7 @@ typedef struct {
 	int listsize;
 } SqList;
 
+/*初始化順序表*/
 Status InitList(SqList *L) {
 	L->elem = (ElemType*)malloc(LIST_INIT_SIZE*sizeof(ElemType));
 	if (!L->elem)
@@ -29,6 +30,7 @@ Status InitList(SqList *L) {
 	return 1;
 }
 
+/*插入操作，傳入參數順序表，要插入的位置，插入的值*/
 Status ListInsert(SqList *L, int i, ElemType e) {
 	int *p, *q;
 	if (i < 1 || i > L->length) {
@@ -54,6 +56,7 @@ Status ListInsert(SqList *L, int i, ElemType e) {
 	return 1;
 }
 
+/*刪除操作，傳入參數順序表，刪除的位置*/
 Status ListDelete(SqList *L, int i) {
 	ElemType *p, *q;
 	if (i < 1 || i > L->length) {
@@ -69,6 +72,7 @@ Status ListDelete(SqList *L, int i) {
 	}
 }
 
+/*展示順序表中所有元素*/
 void Display(SqList *L) {
 	int i = 0;
 	printf("\n++++++++++++++++\n");
