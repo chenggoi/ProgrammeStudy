@@ -1,15 +1,16 @@
 lratic
 ---
+**In progress**
 
-## Data Structure
-### completed 
-- [x] sqlist
-- [x] linkList
+```
+├── acm
+│   └── water
+│       ├── 1001.c
+│       └── 1015.c
+├── algorithm
+├── dataStructure
+    ├── linklist.c
+    ├── sqlist.c
+    └── stack.c
+```
 
-### todo
-
-
-## ACM
-
-
-## Algorithms
