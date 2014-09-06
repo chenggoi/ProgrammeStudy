@@ -5,6 +5,6 @@ This is a repo of learning data structures and algorithms.
 
 
 ### Participants
-- [x] [chenggoi](https://github.com/lratic)
-- [x] [lratic](https://github.com/chenggoi)
+- [x] [lratic](https://github.com/lratic)
+- [x] [chenggoi](https://github.com/chenggoi)
 
