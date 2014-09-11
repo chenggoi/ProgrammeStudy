@@ -32,7 +32,8 @@ Status StrAssign (HString *T, char *chars) {
 		printf ("the string is null");
 		return OK;
 	}
-	T->ch = (char *)malloc(sizeof(char));
+	printf ("\n+++\n");
+	T->ch = (char *)malloc(length * sizeof(char));
 	if (T->ch == NULL) {
 		printf ("alloc memory for the string failed.\n");
 		return ERROR;
@@ -77,7 +78,7 @@ Status Concat (HString *T, HString S1, HString S2) {
 	if (T->ch)
 		free (T->ch);
 	T->ch = (char *)malloc((S1.length + S2.length) * sizeof(char));
-	if (T->ch)
+	if (T->ch == NULL)
 		return ERROR;
 
 	T->length = S1.length + S2.length;
@@ -93,7 +94,7 @@ Status Concat (HString *T, HString S1, HString S2) {
 Status SubString (HString *SUB, HString S, int pos, int len) {
 	int i;
 
-	if (pos < 1 || pos > S.length || len < 0 || S.length - pos +1 > len)
+	if (pos < 1 || pos > S.length || len < 0 || S.length - pos +1 < len)
 		return ERROR;
 	if (SUB->ch)
 		free (SUB->ch);
@@ -112,5 +113,42 @@ Status SubString (HString *SUB, HString S, int pos, int len) {
 }
 
 int main () {
+	int length;
+	char *chars = "asdfw";
+	HString S1 = {
+		"abcde",
+		5,
+	};
+	HString S2 = {
+		"adwe",
+		4,
+	};
+	HString *T = (HString *)malloc(sizeof(HString)); 
+	HString *Sub = (HString *)malloc(sizeof(HString));
+
+	if (StrAssign (T, chars))
+		printf ("Assign string success. \n");
+	else 
+		printf ("Assign string failure");
+
+	printf ("The string T length is %d.\n", StrLength (*T));
+	if (StrCompare (S1, S2) > 0) {
+		printf ("S1 is longer than S2. \n");
+	} else if (StrCompare(S1, S2)) {
+		printf ("S1 is shorter than S2. \n");
+	} else {
+		printf ("S1 is equals to S2. \n");
+	}
+
+	ClearString (T);
+	if (Concat (T, S1, S2) > 0) {
+		printf ("Concat is success.\n");
+	} else {
+		printf ("Concat is failure. \n");
+	}
+	printf ("T is %s.\n", T->ch);
+	
+	SubString (Sub, *T, 3, 4);
+	printf ("SubString Sub is %s. \n", Sub->ch);
 	return 0;
 }

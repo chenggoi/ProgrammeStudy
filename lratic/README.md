@@ -15,7 +15,10 @@ lratic
 │   ├── linklist.c
 │   ├── queue.c
 │   ├── sqlist.c
-│   └── stack.c
-└── README.md
+│   ├── stack.c
+│   └── string.c
+└── tips
+    └── pass.c
+
 ```
 
