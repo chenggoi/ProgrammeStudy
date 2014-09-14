@@ -1,7 +1,7 @@
 /*************************************************************************
  > File Name: string.c
  > Author: ll
- > Mail: ll0xff0@gmail.com 
+ > Mail: ll0xff0@gmail.com
  > Created Time: Wed 10 Sep 2014 04:47:20 PM CST
  ************************************************************************/
 
@@ -50,14 +50,14 @@ int StrLength (HString S) {
 
 /*
  *字符串大小的比较是按位比较每一个字符，而不是长度
- *对于同一位上 `b > a` 
+ *对于同一位上 `b > a`
  */
 int StrCompare (HString S, HString T) {
 	int i;
 	for (i = 0; i < S.length && i < T.length; i++) {
-		if (S.ch[i] != T.ch[i])		
+		if (S.ch[i] != T.ch[i])
 			return S.ch[i] - T.ch[i];
-	} 
+	}
 	return S.length - T.length;
 }
 
@@ -97,7 +97,7 @@ Status SubString (HString *SUB, HString S, int pos, int len) {
 	if (pos < 1 || pos > S.length || len < 0 || S.length - pos +1 < len)
 		return ERROR;
 	if (SUB->ch)
-		free (SUB->ch);
+		free (SUB->ch);</string.h>
 
 	if (len == 0) {
 		SUB->ch = NULL;
@@ -123,12 +123,12 @@ int main () {
 		"adwe",
 		4,
 	};
-	HString *T = (HString *)malloc(sizeof(HString)); 
+	HString *T = (HString *)malloc(sizeof(HString));
 	HString *Sub = (HString *)malloc(sizeof(HString));
 
 	if (StrAssign (T, chars))
 		printf ("Assign string success. \n");
-	else 
+	else
 		printf ("Assign string failure");
 
 	printf ("The string T length is %d.\n", StrLength (*T));
@@ -147,7 +147,7 @@ int main () {
 		printf ("Concat is failure. \n");
 	}
 	printf ("T is %s.\n", T->ch);
-	
+
 	SubString (Sub, *T, 3, 4);
 	printf ("SubString Sub is %s. \n", Sub->ch);
 	return 0;
