@@ -14,19 +14,22 @@
 
 typedef int Status;
 
-typedef struct {
+typedef struct
+{
 	char *ch;
 	int length;
-}HString;
+} HString;
 
 /*生成一个值等于chars的串T*/
-Status StrAssign (HString *T, char *chars) {
+Status StrAssign (HString *T, char *chars)
+{
 	int i, length;
 
 	length = strlen(chars);
 	if (T->ch)
 		free (T->ch);
-	if (length == 0) {
+	if (length == 0)
+	{
 		T->ch = NULL;
 		T->length = 0;
 		printf ("the string is null");
@@ -34,7 +37,8 @@ Status StrAssign (HString *T, char *chars) {
 	}
 	printf ("\n+++\n");
 	T->ch = (char *)malloc(length * sizeof(char));
-	if (T->ch == NULL) {
+	if (T->ch == NULL)
+	{
 		printf ("alloc memory for the string failed.\n");
 		return ERROR;
 	}
@@ -44,7 +48,8 @@ Status StrAssign (HString *T, char *chars) {
 }
 
 /*返回S中元素个数*/
-int StrLength (HString S) {
+int StrLength (HString S)
+{
 	return S.length;
 }
 
@@ -52,9 +57,11 @@ int StrLength (HString S) {
  *字符串大小的比较是按位比较每一个字符，而不是长度
  *对于同一位上 `b > a`
  */
-int StrCompare (HString S, HString T) {
+int StrCompare (HString S, HString T)
+{
 	int i;
-	for (i = 0; i < S.length && i < T.length; i++) {
+	for (i = 0; i < S.length && i < T.length; i++)
+	{
 		if (S.ch[i] != T.ch[i])
 			return S.ch[i] - T.ch[i];
 	}
@@ -62,8 +69,10 @@ int StrCompare (HString S, HString T) {
 }
 
 /*清空S*/
-Status ClearString (HString *S) {
-	if (S->ch) {
+Status ClearString (HString *S)
+{
+	if (S->ch)
+	{
 		S->ch = NULL;
 		free (S->ch);
 	}
@@ -72,7 +81,8 @@ Status ClearString (HString *S) {
 }
 
 /*T为S1和S2联接而成的新串*/
-Status Concat (HString *T, HString S1, HString S2) {
+Status Concat (HString *T, HString S1, HString S2)
+{
 	int i;
 
 	if (T->ch)
@@ -91,35 +101,44 @@ Status Concat (HString *T, HString S1, HString S2) {
 }
 
 /*SUB 为 S 从第 pos 个字符至 pos+len 的子串*/
-Status SubString (HString *SUB, HString S, int pos, int len) {
+Status SubString (HString *SUB, HString S, int pos, int len)
+{
 	int i;
 
-	if (pos < 1 || pos > S.length || len < 0 || S.length - pos +1 < len)
+	if (pos < 1 || pos > S.length || len < 0 || S.length - pos + 1 < len)
 		return ERROR;
 	if (SUB->ch)
-		free (SUB->ch);</string.h>
+		free (SUB->ch);
+	< / string.h >
 
-	if (len == 0) {
+	if (len == 0)
+	{
 		SUB->ch = NULL;
 		SUB->length = 0;
-	} else {
+	}
+	else
+	{
 		SUB->ch = (char *)malloc(len * sizeof(char));
-		for (i = 0; i < len; i++) {
-			SUB->ch[i] = S.ch[pos + i -1];
+		for (i = 0; i < len; i++)
+		{
+			SUB->ch[i] = S.ch[pos + i - 1];
 		}
 		SUB->length = len;
 	}
 	return OK;
 }
 
-int main () {
+int main ()
+{
 	int length;
 	char *chars = "asdfw";
-	HString S1 = {
+	HString S1 =
+	{
 		"abcde",
 		5,
 	};
-	HString S2 = {
+	HString S2 =
+	{
 		"adwe",
 		4,
 	};
@@ -132,18 +151,26 @@ int main () {
 		printf ("Assign string failure");
 
 	printf ("The string T length is %d.\n", StrLength (*T));
-	if (StrCompare (S1, S2) > 0) {
+	if (StrCompare (S1, S2) > 0)
+	{
 		printf ("S1 is longer than S2. \n");
-	} else if (StrCompare(S1, S2)) {
+	}
+	else if (StrCompare(S1, S2))
+	{
 		printf ("S1 is shorter than S2. \n");
-	} else {
+	}
+	else
+	{
 		printf ("S1 is equals to S2. \n");
 	}
 
 	ClearString (T);
-	if (Concat (T, S1, S2) > 0) {
+	if (Concat (T, S1, S2) > 0)
+	{
 		printf ("Concat is success.\n");
-	} else {
+	}
+	else
+	{
 		printf ("Concat is failure. \n");
 	}
 	printf ("T is %s.\n", T->ch);
