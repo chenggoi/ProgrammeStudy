@@ -9,9 +9,17 @@
 
 #define MAXSIZE 100
 
+void Swap (int *a, int *b)
+{
+	int temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 void QuickSort (int *a, int left, int right)
 {
-	int pivot, i, j, key, temp;
+	int pivot, i, j, key, temp, k;
 	i = left;
 	j = right;
 	key = (i + j) / 2;
@@ -19,22 +27,30 @@ void QuickSort (int *a, int left, int right)
 
 	while (i < j)
 	{
-		if (a[i] < pivot)
+		if (a[i] < pivot || a[j] > pivot)
 		{
-			i++;
+			if (a[i] < pivot)
+			{
+				i++;
+			}
+			if (a[j] > pivot)
+			{
+				j--;
+			}
 		}
-		if (a[j] > pivot)
+		if (i <= j && a[i] >= a[j])
 		{
+			Swap (&a[i], &a[j]);
+			i++;
 			j--;
 		}
-		if (i <= j)
+		/*
+		for (k = 0; k < 7; k++)
 		{
-			temp = a[i];
-			a[i] = a[j];
-			a[j] = temp;
-			i++;
-			j--;
+		    printf("%d ", a[k]);
 		}
+		printf("\n");
+		*/
 	}
 	if (i < right)
 	{
@@ -48,7 +64,7 @@ void QuickSort (int *a, int left, int right)
 
 int main ()
 {
-	int a[MAXSIZE] = {15, 2, 5, 6, 3, 10, 22};
+	int a[MAXSIZE] = {12, 234, 3432, 42, 53, 6, 27};
 	QuickSort (a, 0, 6);
 	int i;
 	for (i = 0; i < 7; i++)
