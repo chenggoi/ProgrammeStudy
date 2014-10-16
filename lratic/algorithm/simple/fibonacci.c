@@ -1,8 +1,8 @@
 /*************************************************************************
- > File Name: fibonacci.c
- > Author: ll
- > Mail: ll0xff0@gmail.com
- > Created Time: Tue 23 Sep 2014 07:02:35 AM CST
+  > File Name: fibonacci.c
+  > Author: ll
+  > Mail: ll0xff0@gmail.com
+  > Created Time: Tue 23 Sep 2014 07:02:35 AM CST
  ************************************************************************/
 
 #include<stdio.h>
