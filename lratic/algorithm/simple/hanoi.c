@@ -7,7 +7,7 @@
 
 #include<stdio.h>
 
-int count = 0;
+static int count;
 
 void move(char a, char b)
 {
@@ -31,7 +31,7 @@ void hanoi(int n, char x, char y , char z)
 
 int main()
 {
-	int n = 3;
+	int n = 10;
 	hanoi(n, 'x', 'y', 'z');
 	printf("%d\n", count);
 	return 0;
